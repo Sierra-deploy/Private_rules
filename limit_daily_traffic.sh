@@ -1,63 +1,83 @@
-# 1. 安装 vnStat (如果没装)
-apt-get update && apt-get install -y vnstat bc iptables-persistent 2>/dev/null || yum install -y vnstat bc iptables-services
+# 1. 安装依赖
+apt-get update && apt-get install -y vnstat jq bc iptables-persistent iproute2 2>/dev/null || yum install -y vnstat jq bc iptables-services iproute2
 
-# 2. 写入自动流量限制脚本
+# 2. 写入【生产级】流量限制脚本
 cat << 'EOF' > /usr/local/bin/limit_daily_traffic.sh
 #!/bin/bash
-# ==========================================
-# 每日出站流量限制脚本 (GCP 200G 薅羊毛专用)
+# ===============================================================
+# 每日出站流量限制脚本 (GCP 200G 薅羊毛专用 - 生产级)
+# 作者: Claude AI
 # 设定: 每天 6GB 出站流量上限
-# 动作: 超过则断网，次日 0点 自动恢复
-# ==========================================
+# ===============================================================
 
+set -e  # 遇到错误立即退出，防止误操作
+
+# --- 配置 ---
 LIMIT_GB=6
-# 获取今日出站流量 (TX) 单位: GB
-# vnstat json output -> jq parsing is better but dependency heavy. 
-# Using raw output parsing for compatibility.
-# vnstat --oneline format: 
-# v5: date;rx;tx;...
-TODAY_TX=$(vnstat -d --oneline | awk -F';' '{print $6}' | sed 's/ GiB//g' | sed 's/ MiB//g' | sed 's/ KiB//g')
+LIMIT_BYTES=$(echo "$LIMIT_GB * 1024 * 1024 * 1024" | bc | awk '{printf "%.0f", $1}')
+LOG_FILE="/var/log/daily_traffic_limit.log"
 
-# 单位换算检查 (vnstat 输出可能是 MiB 或 KiB)
-UNIT=$(vnstat -d --oneline | awk -F';' '{print $6}' | grep -o '[GMK]iB')
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" | tee -a "$LOG_FILE"
+}
 
-if [[ "$UNIT" == "MiB" ]]; then
-    # 转换为 GB
-    TODAY_TX=$(echo "scale=4; $TODAY_TX / 1024" | bc)
-elif [[ "$UNIT" == "KiB" ]]; then
-    TODAY_TX=$(echo "scale=4; $TODAY_TX / 1024 / 1024" | bc)
+# --- 自动检测公网接口 ---
+INTERFACE=$(ip -4 route list 0/0 | awk '{print $5}' | head -n1)
+if [ -z "$INTERFACE" ]; then
+    log "ERROR: Could not detect default network interface."
+    exit 1
 fi
 
-echo "$(date): Today TX: ${TODAY_TX} GB / Limit: ${LIMIT_GB} GB"
+# --- 刷新 vnstat 数据 ---
+vnstat -i "$INTERFACE" --update >/dev/null 2>&1 || true
 
-# 判断是否超标
-if (( $(echo "$TODAY_TX > $LIMIT_GB" | bc -l) )); then
-    echo "Traffic exceeded. Blocking output traffic..."
-    # 添加 iptables 规则阻断出站流量 (保留 SSH 端口 22/20202 防止失联)
-    iptables -C OUTPUT -p tcp --sport 20202 -j ACCEPT 2>/dev/null || iptables -A OUTPUT -p tcp --sport 20202 -j ACCEPT
-    iptables -C OUTPUT -p tcp --sport 22 -j ACCEPT 2>/dev/null || iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+# --- 获取今日出站流量 (精确匹配年/月/日) ---
+YEAR=$(date +%Y)
+MONTH=$(date +%-m)  # 不带前导零
+DAY=$(date +%-d)    # 不带前导零
+
+# 使用 jq 精确匹配今日数据
+TODAY_TX=$(vnstat -i "$INTERFACE" --json 2>/dev/null | jq -r \
+    ".interfaces[0].traffic.day[] | select(.date.year==$YEAR and .date.month==$MONTH and .date.day==$DAY) | .tx" 2>/dev/null)
+
+# 安全处理：如果获取失败或为空，默认为0
+if [[ -z "$TODAY_TX" || "$TODAY_TX" == "null" || ! "$TODAY_TX" =~ ^[0-9]+$ ]]; then
+    TODAY_TX=0
+fi
+
+# 转换单位仅用于日志显示
+TODAY_GB=$(echo "scale=2; $TODAY_TX / 1024 / 1024 / 1024" | bc)
+log "Interface: $INTERFACE | Today TX: ${TODAY_GB} GB / Limit: ${LIMIT_GB} GB"
+
+# --- 核心判断 ---
+if [ "$TODAY_TX" -gt "$LIMIT_BYTES" ]; then
+    log "ALERT: Traffic exceeded! Blocking outbound traffic..."
     
-    # 阻断其他所有出站流量 (TCP/UDP)
+    # 确保 SSH 放行规则在最前 (防止失联)
+    iptables -C OUTPUT -p tcp --sport 20202 -j ACCEPT 2>/dev/null || iptables -I OUTPUT 1 -p tcp --sport 20202 -j ACCEPT
+    iptables -C OUTPUT -p tcp --sport 22 -j ACCEPT 2>/dev/null || iptables -I OUTPUT 1 -p tcp --sport 22 -j ACCEPT
+    
+    # 阻断其他所有出站
     iptables -C OUTPUT -j DROP 2>/dev/null || iptables -A OUTPUT -j DROP
     
-    echo "Blocked."
+    log "Outbound traffic BLOCKED (SSH preserved)."
 else
-    # 未超标，确保没有阻断规则
-    # 检查是否存在 DROP 规则，有则清除
+    # 未超标：清理阻断规则 (实现次日自动恢复)
     if iptables -C OUTPUT -j DROP 2>/dev/null; then
-        echo "Traffic within limit. Unblocking..."
-        # 清除所有 OUTPUT 规则 (简单粗暴但有效，或者只删 DROP)
-        # 为安全起见，我们只删除特定的 DROP 规则
+        log "Traffic within limit. Removing block..."
         iptables -D OUTPUT -j DROP
-        echo "Unblocked."
+        log "Outbound traffic UNBLOCKED."
     fi
 fi
 EOF
 
-# 3. 赋予执行权限
+# 3. 权限
 chmod +x /usr/local/bin/limit_daily_traffic.sh
 
-# 4. 设置定时任务 (每5分钟检测一次)
+# 4. 设置定时任务 (每5分钟)
 (crontab -l 2>/dev/null | grep -v "limit_daily_traffic.sh"; echo "*/5 * * * * /usr/local/bin/limit_daily_traffic.sh") | crontab -
 
-echo "部署完成！每日出站流量超过 6GB 将自动切断网络 (保留 SSH)，次日自动恢复。"
+echo "✅ 生产级脚本部署完成！"
+echo "   接口: $(ip -4 route list 0/0 | awk '{print $5}' | head -n1)"
+echo "   日志: /var/log/daily_traffic_limit.log"
+echo "   限制: 每日出站 ${LIMIT_GB}GB，超额自动断网，次日自动恢复。"

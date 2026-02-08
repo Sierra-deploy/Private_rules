@@ -1,12 +1,10 @@
 # 1. 安装依赖
 apt-get update && apt-get install -y vnstat jq bc iptables-persistent iproute2 2>/dev/null || yum install -y vnstat jq bc iptables-services iproute2
 
-# 2. 写入【生产级】流量限制脚本
+# 2. 写入流量限制脚本
 cat << 'EOF' > /usr/local/bin/limit_daily_traffic.sh
 #!/bin/bash
 # ===============================================================
-# 每日出站流量限制脚本 (GCP 200G 薅羊毛专用 - 生产级)
-# 作者: Claude AI
 # 设定: 每天 6GB 出站流量上限
 # ===============================================================
 
@@ -77,7 +75,7 @@ chmod +x /usr/local/bin/limit_daily_traffic.sh
 # 4. 设置定时任务 (每5分钟)
 (crontab -l 2>/dev/null | grep -v "limit_daily_traffic.sh"; echo "*/5 * * * * /usr/local/bin/limit_daily_traffic.sh") | crontab -
 
-echo "✅ 生产级脚本部署完成！"
+echo "✅ 脚本部署完成！"
 echo "   接口: $(ip -4 route list 0/0 | awk '{print $5}' | head -n1)"
 echo "   日志: /var/log/daily_traffic_limit.log"
 echo "   限制: 每日出站 ${LIMIT_GB}GB，超额自动断网，次日自动恢复。"

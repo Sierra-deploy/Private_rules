@@ -17,6 +17,7 @@ DOMAIN-KEYWORD,wellsfargo
 DOMAIN-KEYWORD,americanexpress
 DOMAIN-KEYWORD,navyfederal
 DOMAIN-KEYWORD,omtrdc
+DOMAIN-KEYWORD,equifax
 
 # 💸 Payments
 DOMAIN-SUFFIX,cash.app

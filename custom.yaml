@@ -9,6 +9,7 @@ payload:
   - DOMAIN-SUFFIX,usaa.com
   - DOMAIN-SUFFIX,truist.com
   - DOMAIN-SUFFIX,hsbc.com
+  - DOMAIN-SUFFIX,equifax.com
   - DOMAIN-SUFFIX,sofi.com
   - DOMAIN-SUFFIX,barclaysus.com
   - DOMAIN-SUFFIX,synchrony.com

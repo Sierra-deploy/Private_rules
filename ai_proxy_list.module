@@ -1,0 +1,5 @@
+#!name=proxy_list
+[Rule]
+DOMAIN-SUFFIX,redpocket.com,PROXY
+DOMAIN-SUFFIX,hubspotlinks.com,PROXY
+DOMAIN-SUFFIX,moomooapp.com,PROXY

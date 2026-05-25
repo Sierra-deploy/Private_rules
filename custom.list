@@ -18,6 +18,7 @@ DOMAIN-KEYWORD,americanexpress
 DOMAIN-KEYWORD,navyfederal
 DOMAIN-KEYWORD,omtrdc
 DOMAIN-KEYWORD,equifax
+DOMAIN-KEYWORD,vodafone
 
 # 💸 Payments
 DOMAIN-SUFFIX,cash.app

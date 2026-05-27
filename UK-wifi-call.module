@@ -2,15 +2,15 @@
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,DIRECT
 
 # 沃达丰（Vodafone UK）- Wi-Fi Calling
-DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,Proxy
-DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,Proxy
-DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,Proxy
-DOMAIN-SUFFIX,entsrv-uk.vodafone.com,Proxy
-DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,Proxy
-IP-CIDR,88.82.0.0/19,Proxy,no-resolve
+DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK Calling
+DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK Calling
+DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,UK Calling
+DOMAIN-SUFFIX,entsrv-uk.vodafone.com,UK Calling
+DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,UK Calling
+IP-CIDR,88.82.0.0/19,UK Calling,no-resolve
 
 # CMLink UK（EE）
-IP-CIDR,46.68.0.0/17,Proxy,no-resolve
+IP-CIDR,46.68.0.0/17,UK Calling,no-resolve
 
 # Giffgaff
-IP-CIDR,87.194.0.0/16,Proxy,no-resolve
+IP-CIDR,87.194.0.0/16,UK Calling,no-resolve

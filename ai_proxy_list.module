@@ -1,4 +1,4 @@
-#!name=proxy_list
+#!name=AI
 [Rule]
 DOMAIN-SUFFIX,redpocket.com,PROXY
 DOMAIN-SUFFIX,hubspotlinks.com,PROXY

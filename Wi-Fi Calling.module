@@ -17,6 +17,10 @@ IP-CIDR,139.7.117.168/32,DE,no-resolve
 IP-CIDR,139.7.117.169/32,DE,no-resolve
 IP-CIDR,139.7.117.170/32,DE,no-resolve
 
+# 荷兰 Vodafone
+DOMAIN-SUFFIX,epdg.epc.mnc004.mcc204.pub.3gppnetwork.org,NL
+IP-CIDR,109.39.144.148/32,NL,no-resolve
+
 # 英国 Vodafone
 DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK
 DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK
@@ -30,7 +34,3 @@ IP-CIDR,46.68.0.0/17,UK,no-resolve
 
 # Giffgaff
 IP-CIDR,87.194.0.0/16,UK,no-resolve
-
-[Proxy Group]
-DE = select, DE节点1, DE节点2
-UK = select, UK节点1, UK节点2

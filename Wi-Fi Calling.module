@@ -1,16 +1,16 @@
 #!name=Wi-Fi Calling
-#!desc=英国/德国SIM卡Wi-Fi Calling分流规则（含DNS修复）
+#!desc=SIM卡Wi-Fi Calling分流规则
 
 [Host]
-# 德国 Vodafone DNS 修复
+# 德国 Vodafone DNS
 epdg.epc.mnc002.mcc262.pub.3gppnetwork.org = 139.7.117.168
 epdg.epc.drz1.vodafone-ip.de = 139.7.117.168
-# 荷兰 Vodafone DNS 修复
+# 荷兰 Vodafone DNS
 epdg.epc.mnc004.mcc204.pub.3gppnetwork.org = 109.39.144.148
 
 [Rule]
 # ⚠️ 苹果地区检测 → 必须走当前激活卡所在国家节点
-# 用哪张卡就改成哪个策略，不能写 DIRECT
+# 用哪张卡就改成哪个策略
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,UK   # 用UK卡时
 
 # 德国 Vodafone

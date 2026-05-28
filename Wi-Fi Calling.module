@@ -9,9 +9,8 @@ epdg.epc.drz1.vodafone-ip.de = 139.7.117.168
 epdg.epc.mnc004.mcc204.pub.3gppnetwork.org = 109.39.144.148
 
 [Rule]
-# ⚠️ 苹果地区检测 → 必须走当前激活卡所在国家节点
-# 用哪张卡就改成哪个策略
-DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,UK   # 用UK卡时
+# 苹果地区检测（按当前激活卡改策略）
+DOMAIN,gspe1-ssl.ls.apple.com,UK
 
 # 德国 Vodafone
 DOMAIN-SUFFIX,epdg.epc.mnc002.mcc262.pub.3gppnetwork.org,DE

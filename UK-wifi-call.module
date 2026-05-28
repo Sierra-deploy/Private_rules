@@ -1,19 +1,36 @@
-#!name=UK Wi-Fi Calling
+#!name=Wi-Fi Calling
+#!desc=英国/德国SIM卡Wi-Fi Calling分流规则（含DNS修复）
+
+[Host]
+# 德国 Vodafone ePDG DNS 修复
+epdg.epc.mnc002.mcc262.pub.3gppnetwork.org = 139.7.117.168
+epdg.epc.drz1.vodafone-ip.de = 139.7.117.168
 
 [Rule]
-# 地区检测
+# 苹果地区检测
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,DIRECT
 
-# 沃达丰（Vodafone UK）- Wi-Fi Calling
-DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK Calling
-DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK Calling
-DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,UK Calling
-DOMAIN-SUFFIX,entsrv-uk.vodafone.com,UK Calling
-DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,UK Calling
-IP-CIDR,88.82.0.0/19,UK Calling,no-resolve
+# 德国 Vodafone
+DOMAIN-SUFFIX,epdg.epc.mnc002.mcc262.pub.3gppnetwork.org,DE
+DOMAIN-SUFFIX,vodafone-ip.de,DE
+IP-CIDR,139.7.117.168/32,DE,no-resolve
+IP-CIDR,139.7.117.169/32,DE,no-resolve
+IP-CIDR,139.7.117.170/32,DE,no-resolve
 
-# CMLink UK（EE）
-IP-CIDR,46.68.0.0/17,UK Calling,no-resolve
+# 英国 Vodafone
+DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK
+DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK
+DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,UK
+DOMAIN-SUFFIX,entsrv-uk.vodafone.com,UK
+DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,UK
+IP-CIDR,88.82.0.0/19,UK,no-resolve
+
+# CMLink UK / EE
+IP-CIDR,46.68.0.0/17,UK,no-resolve
 
 # Giffgaff
-IP-CIDR,87.194.0.0/16,UK Calling,no-resolve
+IP-CIDR,87.194.0.0/16,UK,no-resolve
+
+[Proxy Group]
+DE = select, DE节点1, DE节点2
+UK = select, UK节点1, UK节点2

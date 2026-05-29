@@ -5,7 +5,10 @@
 # 德国 Vodafone（境外DNS无法解析，需静态绑定）
 epdg.epc.mnc002.mcc262.pub.3gppnetwork.org = 139.7.117.168
 epdg.epc.drz1.vodafone-ip.de = 139.7.117.168
-
+# Ultra Mobile / T-Mobile USA（国内DNS无法解析，需静态绑定）
+epdg.epc.mnc260.mcc310.pub.3gppnetwork.org = 208.54.36.3
+ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org = 208.54.88.35
+ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org = 208.54.2.99
 [Rule]
 # 德国 Vodafone
 DOMAIN,epdg.epc.mnc002.mcc262.pub.3gppnetwork.org,DE
@@ -32,3 +35,9 @@ IP-CIDR,46.68.0.0/17,UK,no-resolve
 # O2 UK / Giffgaff
 DOMAIN,epdg.epc.mnc010.mcc234.pub.3gppnetwork.org,UK
 IP-CIDR,87.194.0.0/16,UK,no-resolve
+
+# Ultra Mobile / T-Mobile USA
+DOMAIN,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,US
+DOMAIN,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,US
+DOMAIN,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,US
+IP-CIDR,208.54.0.0/16,US,no-resolve

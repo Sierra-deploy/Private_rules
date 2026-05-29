@@ -1,30 +1,43 @@
 payload:
-  # 🏦 Banks (短词改为精准匹配)
-  - DOMAIN-SUFFIX,citi.com          #  citi (防误伤 citizen, cities)
-  - DOMAIN-SUFFIX,chase.com         #  chase (防误伤 purchase)
-  - DOMAIN-SUFFIX,discover.com      #  discover (防误伤 discovery)
-  - DOMAIN-SUFFIX,usbank.com        #  usbank
-  - DOMAIN-SUFFIX,td.com            #  tdbank (TD官网是td.com)
+  # 🏦 Banks
+  - DOMAIN-SUFFIX,citi.com
+  - DOMAIN-SUFFIX,chase.com
+  - DOMAIN-SUFFIX,discover.com
+  - DOMAIN-SUFFIX,usbank.com
+  - DOMAIN-SUFFIX,td.com
   - DOMAIN-SUFFIX,pnc.com
   - DOMAIN-SUFFIX,usaa.com
   - DOMAIN-SUFFIX,truist.com
   - DOMAIN-SUFFIX,hsbc.com
-  - DOMAIN-SUFFIX,equifax.com
-  - DOMAIN-SUFFIX,sofi.com
   - DOMAIN-SUFFIX,barclaysus.com
   - DOMAIN-SUFFIX,synchrony.com
-  # 名够长，保留 KEYWORD
   - DOMAIN-KEYWORD,capitalone
   - DOMAIN-KEYWORD,bankofamerica
   - DOMAIN-KEYWORD,wellsfargo
   - DOMAIN-KEYWORD,americanexpress
   - DOMAIN-KEYWORD,navyfederal
-  - DOMAIN-KEYWORD,omtrdc           # 必要的风控域名
+  - DOMAIN-KEYWORD,omtrdc
+  - DOMAIN-KEYWORD,equifax
+  - DOMAIN-KEYWORD,vodafone
+  - DOMAIN-SUFFIX,ally.com
+  - DOMAIN-SUFFIX,sofi.com
+  - DOMAIN-SUFFIX,marcus.com
+  - DOMAIN-SUFFIX,goldmansachs.com
+  - DOMAIN-SUFFIX,citizensbank.com
+  - DOMAIN-SUFFIX,regions.com
+  - DOMAIN-SUFFIX,fifththird.com
+  - DOMAIN-SUFFIX,huntington.com
+  - DOMAIN-SUFFIX,chime.com
+  - DOMAIN-SUFFIX,varo.com
+  - DOMAIN-SUFFIX,tdbank.com
+  - DOMAIN-KEYWORD,creditkarma
+  - DOMAIN-KEYWORD,transunion
+  - DOMAIN-KEYWORD,experian
 
   # 💸 Payments
-  - DOMAIN-SUFFIX,cash.app          # ⚠️  cash (极易误伤，已精准化)
-  - DOMAIN-SUFFIX,wise.com          # ⚠️  wise (防误伤 otherwise)
-  - DOMAIN-SUFFIX,stripe.com        # ⚠️  stripe (防误伤 striper)
+  - DOMAIN-SUFFIX,cash.app
+  - DOMAIN-SUFFIX,wise.com
+  - DOMAIN-SUFFIX,stripe.com
   - DOMAIN-SUFFIX,venmo.com
   - DOMAIN-SUFFIX,zellepay.com
   - DOMAIN-SUFFIX,squareup.com
@@ -35,20 +48,31 @@ payload:
   - DOMAIN-SUFFIX,revolut.com
   - DOMAIN-KEYWORD,paypal
   - DOMAIN-KEYWORD,remitly
+  - DOMAIN-SUFFIX,zelle.com
+  - DOMAIN-SUFFIX,cashapp.com
+  - DOMAIN-SUFFIX,skrill.com
+  - DOMAIN-SUFFIX,payoneer.com
+  - DOMAIN-SUFFIX,braintreepayments.com
+  - DOMAIN-SUFFIX,adyen.com
+  - DOMAIN-KEYWORD,checkout
 
   # 📈 Investments
   - DOMAIN-SUFFIX,fidelity.com
   - DOMAIN-SUFFIX,schwab.com
   - DOMAIN-SUFFIX,vanguard.com
-  - DOMAIN-SUFFIX,ibkr.com
+  - DOMAIN-SUFFIX,robinhood.com
+  - DOMAIN-SUFFIX,etrade.com
+  - DOMAIN-SUFFIX,tdameritrade.com
+  - DOMAIN-SUFFIX,morganstanley.com
+  - DOMAIN-SUFFIX,merrilledge.com
   - DOMAIN-SUFFIX,interactivebrokers.com
-  - DOMAIN-SUFFIX,moomoo.com
+  - DOMAIN-SUFFIX,webull.com
 
   # 🛍️ Shopping
-  - DOMAIN-SUFFIX,target.com        # ⚠️  target (防误伤 retargeting)
-  - DOMAIN-SUFFIX,shop.app          # ⚠️  shop (Shop App)
-  - DOMAIN-SUFFIX,shopify.com       # ⚠️  shop (Shopify 商家)
-  - DOMAIN-SUFFIX,myshopify.com     # ⚠️ 补充：Shopify 商家后台
+  - DOMAIN-SUFFIX,target.com
+  - DOMAIN-SUFFIX,shop.app
+  - DOMAIN-SUFFIX,shopify.com
+  - DOMAIN-SUFFIX,myshopify.com
   - DOMAIN-SUFFIX,costco.com
   - DOMAIN-SUFFIX,walmart.com
   - DOMAIN-SUFFIX,bestbuy.com
@@ -58,10 +82,20 @@ payload:
   - DOMAIN-SUFFIX,ebay.com
   - DOMAIN-SUFFIX,newegg.com
   - DOMAIN-KEYWORD,amazon
+  - DOMAIN-SUFFIX,macys.com
+  - DOMAIN-SUFFIX,nordstrom.com
+  - DOMAIN-SUFFIX,gap.com
+  - DOMAIN-SUFFIX,oldnavy.com
+  - DOMAIN-SUFFIX,homedepot.com
+  - DOMAIN-SUFFIX,lowes.com
+  - DOMAIN-SUFFIX,wayfair.com
+  - DOMAIN-SUFFIX,chewy.com
+  - DOMAIN-SUFFIX,samsclub.com
+  - DOMAIN-KEYWORD,underarmour
 
   # 🪙 Crypto
-  - DOMAIN-SUFFIX,gate.io           # ⚠️  gate (极易误伤，已精准化)
-  - DOMAIN-SUFFIX,gemini.com        # ⚠️  gemini (星座运势网站常撞车)
+  - DOMAIN-SUFFIX,gate.io
+  - DOMAIN-SUFFIX,gemini.com
   - DOMAIN-SUFFIX,coinbase.com
   - DOMAIN-SUFFIX,kraken.com
   - DOMAIN-SUFFIX,binance.com
@@ -69,11 +103,14 @@ payload:
   - DOMAIN-SUFFIX,bybit.com
   - DOMAIN-SUFFIX,kucoin.com
   - DOMAIN-SUFFIX,bitget.com
-
-  # 🤖 AI & Services
-  - DOMAIN-SUFFIX,openai.com
-  - DOMAIN-SUFFIX,chatgpt.com
-  - DOMAIN-SUFFIX,anthropic.com
-  - DOMAIN-SUFFIX,claude.ai
-  - DOMAIN-SUFFIX,sentry.io         # 原 sentry
-  - DOMAIN-SUFFIX,auth0.com         # 原 auth0
+  - DOMAIN-SUFFIX,binance.us
+  - DOMAIN-SUFFIX,crypto.com
+  - DOMAIN-SUFFIX,bitfinex.com
+  - DOMAIN-SUFFIX,mexc.com
+  - DOMAIN-SUFFIX,htx.com
+  - DOMAIN-SUFFIX,deribit.com
+  - DOMAIN-SUFFIX,phantom.app
+  - DOMAIN-SUFFIX,metamask.io
+  - DOMAIN-SUFFIX,etherscan.io
+  - DOMAIN-SUFFIX,coingecko.com
+  - DOMAIN-SUFFIX,coinmarketcap.com

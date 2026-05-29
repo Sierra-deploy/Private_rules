@@ -2,37 +2,33 @@
 #!desc=SIM卡Wi-Fi Calling分流规则
 
 [Host]
-# 德国 Vodafone DNS
+# 德国 Vodafone（境外DNS无法解析，需静态绑定）
 epdg.epc.mnc002.mcc262.pub.3gppnetwork.org = 139.7.117.168
 epdg.epc.drz1.vodafone-ip.de = 139.7.117.168
-# 荷兰 Vodafone DNS
-epdg.epc.mnc004.mcc204.pub.3gppnetwork.org = 109.39.144.148
 
 [Rule]
-# 苹果地区检测（按当前激活卡改策略）
-DOMAIN,gspe1-ssl.ls.apple.com,UK
-
 # 德国 Vodafone
-DOMAIN-SUFFIX,epdg.epc.mnc002.mcc262.pub.3gppnetwork.org,DE
+DOMAIN,epdg.epc.mnc002.mcc262.pub.3gppnetwork.org,DE
 DOMAIN-SUFFIX,vodafone-ip.de,DE
-IP-CIDR,139.7.117.168/32,DE,no-resolve
-IP-CIDR,139.7.117.169/32,DE,no-resolve
-IP-CIDR,139.7.117.170/32,DE,no-resolve
+IP-CIDR,139.7.117.160/29,DE,no-resolve
+IP-CIDR,139.7.117.168/29,DE,no-resolve
 
 # 荷兰 Vodafone
-DOMAIN-SUFFIX,epdg.epc.mnc004.mcc204.pub.3gppnetwork.org,NL
+DOMAIN,epdg.epc.mnc004.mcc204.pub.3gppnetwork.org,NL
 IP-CIDR,109.39.144.148/32,NL,no-resolve
 
 # 英国 Vodafone
-DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK
-DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK
-DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,UK
+DOMAIN,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK
+DOMAIN,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UK
+DOMAIN,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,UK
 DOMAIN-SUFFIX,entsrv-uk.vodafone.com,UK
 DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,UK
 IP-CIDR,88.82.0.0/19,UK,no-resolve
 
-# CMLink UK / EE
+# EE UK / CMLink UK
+DOMAIN,epdg.epc.mnc030.mcc234.pub.3gppnetwork.org,UK
 IP-CIDR,46.68.0.0/17,UK,no-resolve
 
-# Giffgaff
+# O2 UK / Giffgaff
+DOMAIN,epdg.epc.mnc010.mcc234.pub.3gppnetwork.org,UK
 IP-CIDR,87.194.0.0/16,UK,no-resolve

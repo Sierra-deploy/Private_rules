@@ -1,5 +1,8 @@
-#!name=AI
+#!name=RuleSet
 [Rule]
 DOMAIN-SUFFIX,redpocket.com,PROXY
 DOMAIN-SUFFIX,hubspotlinks.com,PROXY
 DOMAIN-SUFFIX,moomooapp.com,PROXY
+DOMAIN-SUFFIX,bybit.eu,UK
+DOMAIN-SUFFIX,bybit.eu.com,UK
+DOMAIN-SUFFIX,bybit.com,UK

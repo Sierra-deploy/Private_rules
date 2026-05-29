@@ -1,4 +1,4 @@
-# 🏦 Banks (短词改为精准匹配)
+# 🏦 Banks
 DOMAIN-SUFFIX,citi.com
 DOMAIN-SUFFIX,chase.com
 DOMAIN-SUFFIX,discover.com
@@ -10,7 +10,6 @@ DOMAIN-SUFFIX,truist.com
 DOMAIN-SUFFIX,hsbc.com
 DOMAIN-SUFFIX,barclaysus.com
 DOMAIN-SUFFIX,synchrony.com
-# 名够长，保留 KEYWORD
 DOMAIN-KEYWORD,capitalone
 DOMAIN-KEYWORD,bankofamerica
 DOMAIN-KEYWORD,wellsfargo
@@ -19,6 +18,20 @@ DOMAIN-KEYWORD,navyfederal
 DOMAIN-KEYWORD,omtrdc
 DOMAIN-KEYWORD,equifax
 DOMAIN-KEYWORD,vodafone
+DOMAIN-SUFFIX,ally.com
+DOMAIN-SUFFIX,sofi.com
+DOMAIN-SUFFIX,marcus.com
+DOMAIN-SUFFIX,goldmansachs.com
+DOMAIN-SUFFIX,citizensbank.com
+DOMAIN-SUFFIX,regions.com
+DOMAIN-SUFFIX,fifththird.com
+DOMAIN-SUFFIX,huntington.com
+DOMAIN-SUFFIX,chime.com
+DOMAIN-SUFFIX,varo.com
+DOMAIN-SUFFIX,tdbank.com
+DOMAIN-KEYWORD,creditkarma
+DOMAIN-KEYWORD,transunion
+DOMAIN-KEYWORD,experian
 
 # 💸 Payments
 DOMAIN-SUFFIX,cash.app
@@ -34,11 +47,25 @@ DOMAIN-SUFFIX,klarna.com
 DOMAIN-SUFFIX,revolut.com
 DOMAIN-KEYWORD,paypal
 DOMAIN-KEYWORD,remitly
+DOMAIN-SUFFIX,zelle.com
+DOMAIN-SUFFIX,cashapp.com
+DOMAIN-SUFFIX,skrill.com
+DOMAIN-SUFFIX,payoneer.com
+DOMAIN-SUFFIX,braintreepayments.com
+DOMAIN-SUFFIX,adyen.com
+DOMAIN-KEYWORD,checkout
 
 # 📈 Investments
 DOMAIN-SUFFIX,fidelity.com
 DOMAIN-SUFFIX,schwab.com
 DOMAIN-SUFFIX,vanguard.com
+DOMAIN-SUFFIX,robinhood.com
+DOMAIN-SUFFIX,etrade.com
+DOMAIN-SUFFIX,tdameritrade.com
+DOMAIN-SUFFIX,morganstanley.com
+DOMAIN-SUFFIX,merrilledge.com
+DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,webull.com
 
 # 🛍️ Shopping
 DOMAIN-SUFFIX,target.com
@@ -54,6 +81,16 @@ DOMAIN-SUFFIX,etsy.com
 DOMAIN-SUFFIX,ebay.com
 DOMAIN-SUFFIX,newegg.com
 DOMAIN-KEYWORD,amazon
+DOMAIN-SUFFIX,macys.com
+DOMAIN-SUFFIX,nordstrom.com
+DOMAIN-SUFFIX,gap.com
+DOMAIN-SUFFIX,oldnavy.com
+DOMAIN-SUFFIX,homedepot.com
+DOMAIN-SUFFIX,lowes.com
+DOMAIN-SUFFIX,wayfair.com
+DOMAIN-SUFFIX,chewy.com
+DOMAIN-SUFFIX,samsclub.com
+DOMAIN-KEYWORD,underarmour
 
 # 🪙 Crypto
 DOMAIN-SUFFIX,gate.io
@@ -65,4 +102,14 @@ DOMAIN-SUFFIX,okx.com
 DOMAIN-SUFFIX,bybit.com
 DOMAIN-SUFFIX,kucoin.com
 DOMAIN-SUFFIX,bitget.com
-
+DOMAIN-SUFFIX,binance.us
+DOMAIN-SUFFIX,crypto.com
+DOMAIN-SUFFIX,bitfinex.com
+DOMAIN-SUFFIX,mexc.com
+DOMAIN-SUFFIX,htx.com
+DOMAIN-SUFFIX,deribit.com
+DOMAIN-SUFFIX,phantom.app
+DOMAIN-SUFFIX,metamask.io
+DOMAIN-SUFFIX,etherscan.io
+DOMAIN-SUFFIX,coingecko.com
+DOMAIN-SUFFIX,coinmarketcap.com

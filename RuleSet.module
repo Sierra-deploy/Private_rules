@@ -1,6 +1,6 @@
 #!name=RuleSet
 [Rule]
-#DOMAIN-SUFFIX,iepose.cn,DIRECT
+DOMAIN-SUFFIX,iepose.cn,DIRECT
 DOMAIN-SUFFIX,redpocket.com,PROXY
 DOMAIN-SUFFIX,hubspotlinks.com,PROXY
 DOMAIN-SUFFIX,moomooapp.com,PROXY

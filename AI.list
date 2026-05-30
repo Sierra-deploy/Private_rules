@@ -1,0 +1,93 @@
+# NAME: AI-Tools
+# AUTHOR: Perplexity
+# UPDATED: 2026-05-30 23:09:00
+# TOTAL: 5 services
+# DOMAIN entries only for Quantumult X
+# Policy: AI
+
+# =========================
+# OpenAI / ChatGPT
+# =========================
+DOMAIN,api.openai.com,AI
+DOMAIN,chat.openai.com,AI
+DOMAIN,chatgpt.com,AI
+DOMAIN,openai.com,AI
+DOMAIN,oaistatic.com,AI
+DOMAIN,oaiusercontent.com,AI
+DOMAIN,platform.openai.com,AI
+DOMAIN,cdn.oaistatic.com,AI
+DOMAIN,files.oaiusercontent.com,AI
+DOMAIN,auth.openai.com,AI
+
+DOMAIN-SUFFIX,openai.com,AI
+DOMAIN-SUFFIX,chatgpt.com,AI
+DOMAIN-SUFFIX,oaistatic.com,AI
+DOMAIN-SUFFIX,oaiusercontent.com,AI
+DOMAIN-SUFFIX,openaiapis.com,AI
+DOMAIN-SUFFIX,openaiapi.com,AI
+DOMAIN-SUFFIX,openai.azure.com,AI
+DOMAIN-SUFFIX,openai.com.cdn.cloudflare.net,AI
+
+# =========================
+# Anthropic / Claude
+# =========================
+DOMAIN,api.anthropic.com,AI
+DOMAIN,claude.ai,AI
+DOMAIN,console.anthropic.com,AI
+DOMAIN,modelcontextprotocol.io,AI
+
+DOMAIN-SUFFIX,anthropic.com,AI
+DOMAIN-SUFFIX,claude.ai,AI
+DOMAIN-SUFFIX,modelcontextprotocol.io,AI
+DOMAIN-SUFFIX,anthropic.tools,AI
+
+# =========================
+# Google Gemini / Google AI
+# =========================
+DOMAIN,gemini.google.com,AI
+DOMAIN,ai.google.dev,AI
+DOMAIN,makersuite.google.com,AI
+DOMAIN,vertexai.googleapis.com,AI
+DOMAIN,generativelanguage.googleapis.com,AI
+DOMAIN,bard.google.com,AI
+
+DOMAIN-SUFFIX,googleapis.com,AI
+DOMAIN-SUFFIX,googleusercontent.com,AI
+DOMAIN-SUFFIX,google.com,AI
+DOMAIN-SUFFIX,generativeai.google,AI
+DOMAIN-SUFFIX,gemini.google.com,AI
+DOMAIN-SUFFIX,ai.google.dev,AI
+
+# =========================
+# Perplexity
+# =========================
+DOMAIN,perplexity.ai,AI
+DOMAIN,www.perplexity.ai,AI
+DOMAIN,api.perplexity.ai,AI
+
+DOMAIN-SUFFIX,perplexity.ai,AI
+DOMAIN-SUFFIX,pplx.ai,AI
+
+# =========================
+# Midjourney
+# =========================
+DOMAIN,midjourney.com,AI
+DOMAIN,www.midjourney.com,AI
+DOMAIN,api.midjourney.com,AI
+DOMAIN,cdn.midjourney.com,AI
+
+DOMAIN-SUFFIX,midjourney.com,AI
+DOMAIN-SUFFIX,discord.com,AI
+DOMAIN-SUFFIX,discordapp.com,AI
+DOMAIN-SUFFIX,discord.gg,AI
+
+# =========================
+# Optional fallback
+# =========================
+DOMAIN-KEYWORD,openai,AI
+DOMAIN-KEYWORD,chatgpt,AI
+DOMAIN-KEYWORD,claude,AI
+DOMAIN-KEYWORD,anthropic,AI
+DOMAIN-KEYWORD,gemini,AI
+DOMAIN-KEYWORD,perplexity,AI
+DOMAIN-KEYWORD,midjourney,AI

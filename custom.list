@@ -116,3 +116,13 @@ DOMAIN-SUFFIX,metamask.io
 DOMAIN-SUFFIX,etherscan.io
 DOMAIN-SUFFIX,coingecko.com
 DOMAIN-SUFFIX,coinmarketcap.com
+# 🏦 Moomoo (富途海外版)
+DOMAIN-SUFFIX,moomoo.com
+DOMAIN-SUFFIX,moomoo.com.cn
+DOMAIN-SUFFIX,moomoo.com.hk
+DOMAIN-SUFFIX,futunn.com
+DOMAIN-SUFFIX,futucnn.com
+DOMAIN-SUFFIX,futu5.com
+DOMAIN-SUFFIX,futuweb.com
+DOMAIN-KEYWORD,moomoo
+DOMAIN-KEYWORD,futu

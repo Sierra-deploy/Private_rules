@@ -24,3 +24,16 @@ DOMAIN,api.bytick.com,EU
 DOMAIN,bybit-exchange.github.io,EU
 DOMAIN,bybit.ada.support,EU
 DOMAIN-KEYWORD,bybit,EU
+# 🏦 Bitget Wallet (BitKeep)
+DOMAIN-SUFFIX,bitget.com,EU
+DOMAIN-SUFFIX,bitgetwallet.com,EU
+DOMAIN-SUFFIX,bitkeep.com,EU
+DOMAIN-SUFFIX,bitkeep.open,EU
+DOMAIN-SUFFIX,bkapi.xyz,EU
+DOMAIN-SUFFIX,bitkeep.space,EU
+DOMAIN,api.bitget.com,EU
+DOMAIN,api.bitgetwallet.com,EU
+DOMAIN,api.bitkeep.open,EU
+DOMAIN,web3.bitget.com,EU
+DOMAIN-KEYWORD,bitgetwallet,EU
+DOMAIN-KEYWORD,bitkeep,EU

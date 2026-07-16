@@ -2,92 +2,89 @@
 # AUTHOR: Perplexity
 # UPDATED: 2026-05-30 23:09:00
 # TOTAL: 5 services
-# DOMAIN entries only for Quantumult X
-# Policy: AI
 
 # =========================
 # OpenAI / ChatGPT
 # =========================
-DOMAIN,api.openai.com,AI
-DOMAIN,chat.openai.com,AI
-DOMAIN,chatgpt.com,AI
-DOMAIN,openai.com,AI
-DOMAIN,oaistatic.com,AI
-DOMAIN,oaiusercontent.com,AI
-DOMAIN,platform.openai.com,AI
-DOMAIN,cdn.oaistatic.com,AI
-DOMAIN,files.oaiusercontent.com,AI
-DOMAIN,auth.openai.com,AI
+DOMAIN,api.openai.com
+DOMAIN,chat.openai.com
+DOMAIN,chatgpt.com
+DOMAIN,openai.com
+DOMAIN,oaistatic.com
+DOMAIN,oaiusercontent.com
+DOMAIN,platform.openai.com
+DOMAIN,cdn.oaistatic.com
+DOMAIN,files.oaiusercontent.com
+DOMAIN,auth.openai.com
 
-DOMAIN-SUFFIX,openai.com,AI
-DOMAIN-SUFFIX,chatgpt.com,AI
-DOMAIN-SUFFIX,oaistatic.com,AI
-DOMAIN-SUFFIX,oaiusercontent.com,AI
-DOMAIN-SUFFIX,openaiapis.com,AI
-DOMAIN-SUFFIX,openaiapi.com,AI
-DOMAIN-SUFFIX,openai.azure.com,AI
-DOMAIN-SUFFIX,openai.com.cdn.cloudflare.net,AI
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openaiapis.com
+DOMAIN-SUFFIX,openaiapi.com
+DOMAIN-SUFFIX,openai.azure.com
+DOMAIN-SUFFIX,openai.com.cdn.cloudflare.net
 
 # =========================
 # Anthropic / Claude
 # =========================
-DOMAIN,api.anthropic.com,AI
-DOMAIN,claude.ai,AI
-DOMAIN,console.anthropic.com,AI
-DOMAIN,modelcontextprotocol.io,AI
+DOMAIN,api.anthropic.com
+DOMAIN,claude.ai
+DOMAIN,console.anthropic.com
+DOMAIN,modelcontextprotocol.io
 
-DOMAIN-SUFFIX,anthropic.com,AI
-DOMAIN-SUFFIX,claude.ai,AI
-DOMAIN-SUFFIX,modelcontextprotocol.io,AI
-DOMAIN-SUFFIX,anthropic.tools,AI
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,modelcontextprotocol.io
+DOMAIN-SUFFIX,anthropic.tools
 
 # =========================
-# Google Gemini / Google AI
+# Google Gemini / Google AI (已优化，防止全局 Google 误流)
 # =========================
-DOMAIN,gemini.google.com,AI
-DOMAIN,ai.google.dev,AI
-DOMAIN,makersuite.google.com,AI
-DOMAIN,vertexai.googleapis.com,AI
-DOMAIN,generativelanguage.googleapis.com,AI
-DOMAIN,bard.google.com,AI
+DOMAIN,gemini.google.com
+DOMAIN,ai.google.dev
+DOMAIN,makersuite.google.com
+DOMAIN,vertexai.googleapis.com
+DOMAIN,generativelanguage.googleapis.com
+DOMAIN,bard.google.com
 
-DOMAIN-SUFFIX,googleapis.com,AI
-DOMAIN-SUFFIX,googleusercontent.com,AI
-DOMAIN-SUFFIX,google.com,AI
-DOMAIN-SUFFIX,generativeai.google,AI
-DOMAIN-SUFFIX,gemini.google.com,AI
-DOMAIN-SUFFIX,ai.google.dev,AI
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,ai.google.dev
+DOMAIN-KEYWORD,alkalimeteon-pa.clients6.google.com
+DOMAIN-KEYWORD,proactivebackend-pa.googleapis.com
 
 # =========================
 # Perplexity
 # =========================
-DOMAIN,perplexity.ai,AI
-DOMAIN,www.perplexity.ai,AI
-DOMAIN,api.perplexity.ai,AI
+DOMAIN,perplexity.ai
+DOMAIN,www.perplexity.ai
+DOMAIN,api.perplexity.ai
 
-DOMAIN-SUFFIX,perplexity.ai,AI
-DOMAIN-SUFFIX,pplx.ai,AI
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,pplx.ai
 
 # =========================
 # Midjourney
 # =========================
-DOMAIN,midjourney.com,AI
-DOMAIN,www.midjourney.com,AI
-DOMAIN,api.midjourney.com,AI
-DOMAIN,cdn.midjourney.com,AI
+DOMAIN,midjourney.com
+DOMAIN,www.midjourney.com
+DOMAIN,api.midjourney.com
+DOMAIN,cdn.midjourney.com
 
-DOMAIN-SUFFIX,midjourney.com,AI
-DOMAIN-SUFFIX,discord.com,AI
-DOMAIN-SUFFIX,discordapp.com,AI
-DOMAIN-SUFFIX,discord.gg,AI
+DOMAIN-SUFFIX,midjourney.com
+DOMAIN-SUFFIX,discord.com
+DOMAIN-SUFFIX,discordapp.com
+DOMAIN-SUFFIX,discord.gg
 
 # =========================
 # Optional fallback
 # =========================
-DOMAIN-KEYWORD,openai,AI
-DOMAIN-KEYWORD,chatgpt,AI
-DOMAIN-KEYWORD,claude,AI
-DOMAIN-KEYWORD,anthropic,AI
-DOMAIN-KEYWORD,gemini,AI
-DOMAIN-KEYWORD,perplexity,AI
-DOMAIN-KEYWORD,midjourney,AI
+DOMAIN-KEYWORD,openai
+DOMAIN-KEYWORD,chatgpt
+DOMAIN-KEYWORD,claude
+DOMAIN-KEYWORD,anthropic
+DOMAIN-KEYWORD,gemini
+DOMAIN-KEYWORD,perplexity
+DOMAIN-KEYWORD,midjourney

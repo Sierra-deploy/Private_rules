@@ -1,0 +1,20 @@
+# NAME: eSIM
+# AUTHOR: Custom
+# UPDATED: 2026-07-29 00:00:00
+
+# =========================
+# Saily SM-DP+
+# =========================
+DOMAIN-SUFFIX,ondemandconnectivity.com
+DOMAIN-SUFFIX,saily.com
+# =========================
+# Apple eSIM Activation
+# =========================
+DOMAIN,sq-device.apple.com
+DOMAIN,esimsetup.apple.com
+DOMAIN,albert.apple.com
+DOMAIN,gs.apple.com
+DOMAIN,humb.apple.com
+DOMAIN,static.ips.apple.com
+DOMAIN,tbsc.apple.com
+DOMAIN,captive.apple.com

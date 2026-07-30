@@ -24,8 +24,11 @@ DOMAIN-SUFFIX,entsrv-uk.vodafone.com
 DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com
 IP-CIDR,88.82.0.0/19,no-resolve
 
-# EE UK / CMLink UK
+# 英国 (EE UK / CTExcel UK / CMLink UK)
+# ==========================================
 DOMAIN-SUFFIX,mnc030.mcc234.pub.3gppnetwork.org
+DOMAIN-SUFFIX,mnc008.mcc234.pub.3gppnetwork.org
+DOMAIN-SUFFIX,ctexcel.com
 IP-CIDR,46.68.0.0/17,no-resolve
 
 # O2 UK / Giffgaff

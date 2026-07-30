@@ -1,0 +1,32 @@
+# NAME: eSIM
+# AUTHOR: Custom
+# UPDATED: 2026-07-29 00:00:00
+
+# =========================
+# SM-DP+ & eSIM Platform Servers
+# =========================
+# IDEMIA (包含 vfgb.idemia.io 等运营商 SM-DP+ 节点)
+DOMAIN-SUFFIX,idemia.io
+DOMAIN-SUFFIX,idemia.com
+
+# Saily & OnDemand Connectivity
+DOMAIN-SUFFIX,saily.com
+DOMAIN-SUFFIX,ondemandconnectivity.com
+
+# Major Global SM-DP+ Infrastructure (可按需保留/扩展)
+DOMAIN-SUFFIX,redteamobile.com
+DOMAIN-SUFFIX,truphone.com
+DOMAIN-SUFFIX,gi-de.com
+DOMAIN-SUFFIX,thalesgroup.com
+
+# =========================
+# Apple eSIM & Device Activation
+# =========================
+DOMAIN,albert.apple.com
+DOMAIN,captive.apple.com
+DOMAIN,esimsetup.apple.com
+DOMAIN,gs.apple.com
+DOMAIN,humb.apple.com
+DOMAIN,sq-device.apple.com
+DOMAIN,static.ips.apple.com
+DOMAIN,tbsc.apple.com

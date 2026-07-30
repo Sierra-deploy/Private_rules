@@ -1,0 +1,40 @@
+# NAME: Wi-Fi Calling
+# DESC: SIM卡 Wi-Fi Calling (ePDG) 运营商精准分流规则列表
+# UPDATED: 2026-07-29
+
+# ==========================================
+# 德国 (Vodafone DE)
+# ==========================================
+DOMAIN-SUFFIX,mnc002.mcc262.pub.3gppnetwork.org
+DOMAIN-SUFFIX,vodafone-ip.de
+IP-CIDR,139.7.117.160/28,no-resolve
+
+# ==========================================
+# 荷兰 (Vodafone NL)
+# ==========================================
+DOMAIN-SUFFIX,mnc004.mcc204.pub.3gppnetwork.org
+IP-CIDR,109.39.144.148/32,no-resolve
+
+# ==========================================
+# 英国 (Vodafone UK / EE / O2 / Giffgaff / CMLink)
+# ==========================================
+# Vodafone UK
+DOMAIN-SUFFIX,mnc015.mcc234.pub.3gppnetwork.org
+DOMAIN-SUFFIX,entsrv-uk.vodafone.com
+DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com
+IP-CIDR,88.82.0.0/19,no-resolve
+
+# EE UK / CMLink UK
+DOMAIN-SUFFIX,mnc030.mcc234.pub.3gppnetwork.org
+IP-CIDR,46.68.0.0/17,no-resolve
+
+# O2 UK / Giffgaff
+DOMAIN-SUFFIX,mnc010.mcc234.pub.3gppnetwork.org
+IP-CIDR,87.194.0.0/16,no-resolve
+
+# ==========================================
+# 美国 (Ultra Mobile / T-Mobile US)
+# ==========================================
+DOMAIN-SUFFIX,mnc260.mcc310.pub.3gppnetwork.org
+IP-CIDR,208.54.0.0/16,no-resolve
+IP-CIDR,66.209.64.0/18,no-resolve

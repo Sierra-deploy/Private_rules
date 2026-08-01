@@ -1,0 +1,278 @@
+# Mihomo / Clash Meta 规则模板
+# 节点由订阅、proxy-providers 或客户端合并注入。
+
+mode: rule
+ipv6: false
+
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - 🚀 手动选择
+      - ♻️ 自动选择
+      - DIRECT
+
+  - name: 🚀 手动选择
+    type: select
+    include-all: true
+    proxies:
+      - DIRECT
+
+  - name: ♻️ 自动选择
+    type: url-test
+    include-all: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🔎 Google服务
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+  - name: 🏦 银行
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+  - name: 🧭 EU
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+  - name: 💬 Ai平台
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+  - name: 🎮 游戏平台
+    type: select
+    include-all: true
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+
+  - name: 🍎 Apple服务
+    type: select
+    include-all: true
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+
+  - name: Ⓜ️ 微软服务
+    type: select
+    include-all: true
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+
+  - name: 🎵 TikTok
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+  - name: 📲 即时通讯
+    type: select
+    include-all: true
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+  - name: 🍃 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - DIRECT
+
+rules:
+  # Wi-Fi Calling 置顶，避免 Fake-IP 被 private 规则提前匹配
+  - RULE-SET,WiFiCalling,🧭 EU
+
+  # 本地和私有网络
+  - GEOSITE,private,🎯 全球直连
+  - GEOIP,private,🎯 全球直连,no-resolve
+
+  # 基础规则
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,UnBan,🎯 全球直连
+  - RULE-SET,BanAD,🛑 广告拦截
+  - RULE-SET,BanProgramAD,🍃 应用净化
+
+  # Google 服务
+  - GEOSITE,google,🔎 Google服务
+  - GEOSITE,youtube,🔎 Google服务
+  - GEOIP,google,🔎 Google服务,no-resolve
+  - RULE-SET,Google,🔎 Google服务
+  - RULE-SET,GoogleFCM,🔎 Google服务
+  - RULE-SET,YouTube,🔎 Google服务
+  - RULE-SET,Gemini,🔎 Google服务
+
+  # EU
+  - RULE-SET,EU_bybit,🧭 EU
+
+  # 国内直连优化
+  - GEOSITE,apple-cn,🎯 全球直连
+  - GEOSITE,microsoft@cn,🎯 全球直连
+  - GEOSITE,category-games@cn,🎯 全球直连
+  - GEOSITE,category-public-tracker,🎯 全球直连
+
+  # 游戏平台和下载
+  - GEOSITE,category-game-platforms-download,🎮 游戏平台
+
+  # AI 平台
+  - GEOSITE,openai,💬 Ai平台
+  - GEOSITE,category-ai-!cn,💬 Ai平台
+
+  # 银行、TikTok、即时通讯和社交媒体
+  - RULE-SET,custom,🏦 银行
+  - GEOSITE,tiktok,🎵 TikTok
+  - GEOSITE,category-communication,📲 即时通讯
+  - GEOSITE,category-social-media-!cn,🚀 节点选择
+
+  # 常用服务
+  - GEOSITE,github,🚀 节点选择
+  - GEOSITE,netflix,🚀 节点选择
+  - GEOSITE,microsoft,Ⓜ️ 微软服务
+  - GEOSITE,apple,🍎 Apple服务
+
+  # GFW 列表
+  - RULE-SET,ProxyGFWlist,🚀 节点选择
+  - GEOSITE,gfw,🚀 节点选择
+
+  # IP 规则
+  - GEOIP,telegram,📲 即时通讯,no-resolve
+  - GEOIP,netflix,🚀 节点选择,no-resolve
+  - GEOIP,twitter,🚀 节点选择,no-resolve
+  - GEOIP,facebook,🚀 节点选择,no-resolve
+
+  # 国内域名和 IP
+  - GEOSITE,cn,🎯 全球直连
+  - GEOIP,cn,🎯 全球直连,no-resolve
+
+  # 兜底
+  - MATCH,🐟 漏网之鱼
+
+rule-providers:
+  WiFiCalling:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/Sierra-deploy/Private_rules/refs/heads/master/WiFiCalling.list
+    path: ./ruleset/WiFiCalling.list
+    interval: 86400
+
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./ruleset/LocalAreaNetwork.list
+    interval: 86400
+
+  UnBan:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+    path: ./ruleset/UnBan.list
+    interval: 86400
+
+  BanAD:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./ruleset/BanAD.list
+    interval: 86400
+
+  BanProgramAD:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./ruleset/BanProgramAD.list
+    interval: 86400
+
+  Google:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Google.list
+    path: ./ruleset/Google.list
+    interval: 86400
+
+  GoogleFCM:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+    path: ./ruleset/GoogleFCM.list
+    interval: 86400
+
+  YouTube:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
+    path: ./ruleset/YouTube.list
+    interval: 86400
+
+  Gemini:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Gemini.list
+    path: ./ruleset/Gemini.list
+    interval: 86400
+
+  EU_bybit:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/Sierra-deploy/Private_rules/refs/heads/master/EU_bybit.list
+    path: ./ruleset/EU_bybit.list
+    interval: 86400
+
+  custom:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/Sierra-deploy/Private_rules/master/custom.list
+    path: ./ruleset/custom.list
+    interval: 86400
+
+  ProxyGFWlist:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
+    path: ./ruleset/ProxyGFWlist.list
+    interval: 86400

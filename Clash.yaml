@@ -188,6 +188,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/Sierra-deploy/Private_rules/refs/heads/master/WiFiCalling.list
     path: ./ruleset/WiFiCalling.list
     interval: 86400
+    proxy: 🚀 节点选择
 
   LocalAreaNetwork:
     type: http

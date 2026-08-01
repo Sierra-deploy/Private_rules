@@ -30,6 +30,7 @@ DOMAIN-SUFFIX,mnc030.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,mnc008.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,mnc033.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,ctexcel.com
+DOMAIN,se.sim.ct.ee.co.uk
 IP-CIDR,46.68.0.0/17,no-resolve
 
 # O2 UK / Giffgaff

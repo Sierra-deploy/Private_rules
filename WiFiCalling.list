@@ -22,7 +22,11 @@ IP-CIDR,109.39.144.148/32,no-resolve
 DOMAIN-SUFFIX,mnc015.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,entsrv-uk.vodafone.com
 DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com
+DOMAIN-SUFFIX,voxi.co.uk
+DOMAIN,epdg.vodafone.co.uk
 IP-CIDR,88.82.0.0/19,no-resolve
+IP-CIDR,88.82.11.208/28,no-resolve
+IP-CIDR,148.252.188.96/28,no-resolve
 
 # 英国 (EE UK / CTExcel UK / CMLink UK)
 # ==========================================

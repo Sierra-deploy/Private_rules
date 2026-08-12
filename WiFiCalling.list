@@ -49,3 +49,11 @@ IP-CIDR,87.194.0.0/16,no-resolve
 DOMAIN-SUFFIX,mnc260.mcc310.pub.3gppnetwork.org
 IP-CIDR,208.54.0.0/16,no-resolve
 IP-CIDR,66.209.64.0/18,no-resolve
+
+# 新西兰 (Spark NZ / Skinny NZ)
+# ==========================================
+DOMAIN-SUFFIX,mnc005.mcc530.pub.3gppnetwork.org
+DOMAIN,epdg.epc.mnc005.mcc530.pub.3gppnetwork.spark.co.nz
+IP-CIDR,122.63.255.109/32,no-resolve
+IP-CIDR,122.63.255.112/32,no-resolve
+IP-CIDR,122.63.255.115/32,no-resolve

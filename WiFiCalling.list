@@ -33,10 +33,12 @@ IP-CIDR,148.252.188.96/28,no-resolve
 DOMAIN-SUFFIX,mnc030.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,mnc008.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,mnc033.mcc234.pub.3gppnetwork.org
+DOMAIN-SUFFIX,epdg.epc.mnc033.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,ctexcel.com
 DOMAIN-SUFFIX,go-esim.com
 DOMAIN,se.sim.ct.ee.co.uk
 DOMAIN,gspe1-ssl.ls.apple.com
+IP-CIDR6,2a01:4c8:f000:4030::1/128,no-resolve
 IP-CIDR,46.68.0.0/17,no-resolve
 IP-CIDR,31.94.76.0/28,no-resolve
 # O2 UK / Giffgaff

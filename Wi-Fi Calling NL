@@ -1,0 +1,10 @@
+# NAME: Wi-Fi Calling
+# DESC: SIM卡 Wi-Fi Calling (ePDG) 运营商精准分流规则列表
+# UPDATED: 2026-07-29
+# 新西兰 (Spark NZ / Skinny NZ)
+# ==========================================
+DOMAIN-SUFFIX,mnc005.mcc530.pub.3gppnetwork.org
+DOMAIN,epdg.epc.mnc005.mcc530.pub.3gppnetwork.spark.co.nz
+IP-CIDR,122.63.255.109/32,no-resolve
+IP-CIDR,122.63.255.112/32,no-resolve
+IP-CIDR,122.63.255.115/32,no-resolve
